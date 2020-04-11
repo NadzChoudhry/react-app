@@ -1,0 +1,10 @@
+sudo: required
+services:
+    - docker
+
+before_install:
+    - docker build -t nadzch/react-app -f Dockerfile.dev .
+
+script:
+    - docker run nadzch/reacct-app npm run test -- --coverage  # -- --coverage is for to exit test suite automatically
+
